@@ -38,6 +38,7 @@ var co;
                 var LangManager = /** @class */ (function () {
                     function LangManager() {
                         this.mLangCodeArr = [LandCode.EN, LandCode.SC, LandCode.TC, LandCode.JP];
+                        this.mCurLangCode = LandCode.EN;
                         /**
                          * If you want to parse sync, this will cost some time to show the translation.
                          */
@@ -46,7 +47,6 @@ var co;
                          * If you placed your langFile.csv in another place, remember to update the below path.
                          */
                         this.mLangFilePath = "res/langFile.csv";
-                        this.mCurLangCode = LandCode.SC;
                         this.mMultiLangTextArr = [];
                         this.mMultiLangKeystArr = [];
                         this.mKeyValue = {};

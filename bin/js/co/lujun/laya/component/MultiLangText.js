@@ -63,6 +63,15 @@ var co;
                             this.text = component.LangManager.getInstance().getValue(this.langKey);
                         }
                     };
+                    MultiLangText.prototype.multiLang = function (langKey, translateParent) {
+                        if (translateParent === void 0) { translateParent = false; }
+                        if (translateParent && (this.parent == undefined || this.parent == null)) {
+                            throw "The parent node can not be found!";
+                        }
+                        this.langKey = langKey;
+                        this.translateParent = translateParent;
+                        this.transLang();
+                    };
                     return MultiLangText;
                 }(DisplayText));
                 component.MultiLangText = MultiLangText;

@@ -22,7 +22,7 @@
 -->
 
 <uiComp>
-    <MultiLangText className="co.lujun.laya.component.MultiLangText" runClass="co.lujun.laya.component.MultiLangText" inherit="Text" defaultValue="text=''" resName="multiLangText" icon="Text" groups="公用,常用,宽高及位置,旋转及缩放" drag="3">
+    <MultiLangText className="co.lujun.laya.component.MultiLangText" runClass="co.lujun.laya.component.MultiLangText" inherit="Text" defaultValue="text=''" resName="multiLangText" icon="multiLangText" groups="公用,常用,宽高及位置,旋转及缩放" drag="3">
         <prop name="langKey" tips="lang key" type="string" default="" group="常用" />
         <prop name="translateParent" tips="If set up 'true', the script will translate partent's Text." type="bool" default="false" group="常用" />
     </MultiLangText>

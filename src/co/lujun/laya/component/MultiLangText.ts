@@ -46,5 +46,14 @@ module co.lujun.laya.component{
 				this.text = LangManager.getInstance().getValue(this.langKey);
 			}
 		}
+
+		public multiLang(langKey: string, translateParent: boolean = false){
+			if(translateParent && (this.parent == undefined || this.parent == null)){
+				throw "The parent node can not be found!";
+			}
+			this.langKey = langKey;
+			this.translateParent = translateParent;
+			this.transLang();
+		}
 	}
 }

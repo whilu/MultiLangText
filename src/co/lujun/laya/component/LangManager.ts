@@ -40,7 +40,7 @@ module co.lujun.laya.component{
 		private mMultiLangTextArr: Array<Laya.Text>;
 		private mMultiLangKeystArr: Array<string>;
 
-		private mCurLangCode: LandCode;
+		private mCurLangCode: LandCode = LandCode.EN;
 		private mLangFile: string;
 
 		/**
@@ -54,7 +54,6 @@ module co.lujun.laya.component{
 		private mLangFilePath: string = "res/langFile.csv";
 
 		constructor(){
-			this.mCurLangCode = LandCode.SC;
 			this.mMultiLangTextArr = [];
 			this.mMultiLangKeystArr = [];
 			this.mKeyValue = {};

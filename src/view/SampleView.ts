@@ -22,6 +22,7 @@
 
 import LangManager = co.lujun.laya.component.LangManager;
 import LangCode = co.lujun.laya.component.LandCode;
+import MultiLangText = co.lujun.laya.component.MultiLangText;
 
 module view{
 	
@@ -41,6 +42,22 @@ module view{
 			this.jpBtn.on(Laya.Event.CLICK, this, function(){
 				LangManager.getInstance().switchLang(LangCode.JP);
 			});
+
+			let multiLangText: MultiLangText = new MultiLangText();
+			multiLangText.pos(0, 0);
+			multiLangText.fontSize = 50;
+			multiLangText.color = "#ffffff";
+			multiLangText.multiLang("^BTN_SET", false);
+			Laya.stage.addChild(multiLangText);
+
+			let layaText: Laya.Text = new Laya.Text();
+			let layaTextMultiText: MultiLangText = new MultiLangText();
+			layaText.pos(300, 0);
+			layaText.fontSize = 50;
+			layaText.color = "#ffffff";
+			layaText.addChild(layaTextMultiText);
+			layaTextMultiText.multiLang("^BTN_SOUND", true);
+			Laya.stage.addChild(layaText);
 		}
 	}
 }

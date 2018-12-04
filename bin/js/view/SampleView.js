@@ -34,6 +34,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var LangManager = co.lujun.laya.component.LangManager;
 var LangCode = co.lujun.laya.component.LandCode;
+var MultiLangText = co.lujun.laya.component.MultiLangText;
 var view;
 (function (view) {
     var SampleView = /** @class */ (function (_super) {
@@ -52,6 +53,20 @@ var view;
             _this.jpBtn.on(Laya.Event.CLICK, _this, function () {
                 LangManager.getInstance().switchLang(LangCode.JP);
             });
+            var multiLangText = new MultiLangText();
+            multiLangText.pos(0, 0);
+            multiLangText.fontSize = 50;
+            multiLangText.color = "#ffffff";
+            multiLangText.multiLang("^BTN_SET", false);
+            Laya.stage.addChild(multiLangText);
+            var layaText = new Laya.Text();
+            var layaTextMultiText = new MultiLangText();
+            layaText.pos(300, 0);
+            layaText.fontSize = 50;
+            layaText.color = "#ffffff";
+            layaText.addChild(layaTextMultiText);
+            layaTextMultiText.multiLang("^BTN_SOUND", true);
+            Laya.stage.addChild(layaText);
             return _this;
         }
         return SampleView;

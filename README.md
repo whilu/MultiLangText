@@ -10,6 +10,7 @@
 
 /Resources/app/out/vs/layaEditor/renders/custom
 /Resources/app/out/vs/layaEditor/laya/basics/Custom
+/Resources/app/out/vs/layaEditor/laya/icons/components
 
 
 ### Step 2
