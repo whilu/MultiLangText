@@ -87,13 +87,13 @@ layaText1.text = LangManager.getInstance().getValue("^BTN_MUSIC");
 Laya.stage.addChild(layaText1);
 ```
 
-- ```switchLang(code: LandCode)```, with this method, you can switch language with [LandCode](#landCode)
+- ```switchLang(code: LangCode)```, with this method, you can switch language with [LangCode](#langCode)
 
 ```typescript
-LangManager.getInstance().switchLang(LandCode.SC);
+LangManager.getInstance().switchLang(LangCode.SC);
 ```
 
-## <span id="landCode">LandCode</span>
+## <span id="langCode">LangCode</span>
 
 A enum for your translation, located in ```co.lujun.laya.component```.
 
@@ -104,7 +104,7 @@ A enum for your translation, located in ```co.lujun.laya.component```.
 | TC | 3 | 3 | 繁體中文
 | JP | 4 | 4 | 日本語
 
-**Note: When you add new language translation, remember to add one new enum code to ```LandCode```, you also need to add this new enum code into class ```co.lujun.laya.component.LangManager.mLangCodeArr```. In ```langFile.csv``` file, add new translation with(```Tab```).**
+**Note: When you add new language translation, remember to add one new enum code to ```LangCode```, you also need to add this new enum code into class ```co.lujun.laya.component.LangManager.mLangCodeArr```. In ```langFile.csv``` file, add new translation with(```Tab```).**
 
 Enjoy it😄!
 
