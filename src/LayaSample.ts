@@ -33,7 +33,7 @@ class GameMain{
         //     Laya.stage.addChild(new view.SampleView);
         // }));
         
-        // Not preLoad 'langfile.csv', you can init LangManager in any place, but remember init with 'false'(not preloaded 'langFile.csv').
+        // No preLoad 'langfile.csv', you can init LangManager in any place, but remember init with 'false'(not preloaded 'langFile.csv').
         Laya.loader.load(["res/atlas/comp.atlas"], Laya.Handler.create(this, function(){
             Laya.stage.addChild(new view.SampleView);
         }));

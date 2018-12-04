@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/whilu/MultiLangText.svg)](https://travis-ci.org/whilu/MultiLangText)
 
-English | [中文](README-zh_CN.md)
+[English](README.md) | 中文
 
 Multi-language Text for LayaAir engine.
 
