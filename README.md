@@ -18,13 +18,13 @@ Multi-language Text for LayaAir engine.
 - Copy ```/src/co/lujun/laya/component/MultiLangText.xml``` to ```{LayaAir IDE directory}/Resources/app/out/vs/layaEditor/renders/custom/```
 - Copy ```/src/co/lujun/laya/component/multiLangText.png``` to ```{LayaAir IDE directory}/Resources/app/out/vs/layaEditor/laya/basics/Custom/```
 - Copy ```/src/co/lujun/laya/component/multiLangText.png``` to ```{LayaAir IDE directory}/Resources/app/out/vs/layaEditor/laya/icons/components/```
-- Export ```/src/co/``` directory to your project.
+- Export ```/src/co/``` directory to your project
 
 ### Step 2
 
 Init library, there are two ways for init(Sync and Async):
 
-Sync init, when do this, you should preLoad ```langfile.csv``` first, when you complete loaded the ```langFile.csv``` then call ```init``` method.
+Sync init, when do this, you should preLoad ```langfile.csv``` first, when you complete loaded the ```langFile.csv``` then call ```init``` method. The first parameter ```preloadLangFile``` set as ```true```, the second parameter ```langFilePath``` set as your ```langFile.csv``` path.
 
 ```typescript
 Laya.loader.load("res/langFile.csv", Laya.Handler.create(this, function(){
@@ -33,7 +33,7 @@ Laya.loader.load("res/langFile.csv", Laya.Handler.create(this, function(){
 }));
 ```
 
-Async init, when do this, you can init ```LangManager``` in any place, but remember call ```init``` method with ```false```(no preloaded ```langFile.csv```).
+Async init, when do this, you can init ```LangManager``` in any place, but remember call ```init``` method with ```false```(no preloaded ```langFile.csv```). The first parameter ```preloadLangFile``` set as ```false```, the second parameter ```langFilePath``` set as your ```langFile.csv``` path.
 
 ```typescript
 Laya.loader.load(["res/atlas/comp.atlas"], Laya.Handler.create(this, function(){
@@ -87,13 +87,24 @@ layaText1.text = LangManager.getInstance().getValue("^BTN_MUSIC");
 Laya.stage.addChild(layaText1);
 ```
 
-- ```switchLang(code: co.lujun.laya.component.LandCode)```, with this method, you can switch language with language code
+- ```switchLang(code: [co.lujun.laya.component.LandCode](#landCode))```, with this method, you can switch language with ```[co.lujun.laya.component.LandCode](#landCode)```
 
 ```typescript
 LangManager.getInstance().switchLang(LandCode.SC);
 ```
 
-**Note: When you add new language translation, remember to add one new enum code in ```co.lujun.laya.component.LandCode```, add this new enum code in ```co.lujun.laya.component.LangManager```'s member ```mLangCodeArr```. In ```langFile.csv``` file, add new translation with(```Tab```).**
+## <span id="landCode">LandCode</span>
+
+A enum for your translation, located in ```co.lujun.laya.component```.
+
+|enum|value|in .csv file column index(first column index is 0)|description
+|:---:|:---:|:---:|:---:|
+| EN | 1 | 1 | English
+| SC | 2 | 2 | 简体中文
+| TC | 3 | 3 | 繁體中文
+| JP | 4 | 4 | 日本語
+
+**Note: When you add new language translation, remember to add one new enum code to ```[co.lujun.laya.component.LandCode](#landCode)```, you also need to add this new enum code into class ```co.lujun.laya.component.LangManager.mLangCodeArr```. In ```langFile.csv``` file, add new translation with(```Tab```).**
 
 Enjoy it😄!
 
