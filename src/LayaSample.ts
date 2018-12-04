@@ -29,7 +29,7 @@ class GameMain{
 
         // PreLoad 'langfile.csv', if do this, make sure init LangManager when you complete loaded the 'langFile.csv'.
         // Laya.loader.load(["res/atlas/comp.atlas", "res/langFile.csv"], Laya.Handler.create(this, function(){
-        //     LangManager.init(true);
+        //     LangManager.init(true, "res/langFile.csv");
         //     Laya.stage.addChild(new view.SampleView);
         // }));
         
@@ -37,7 +37,7 @@ class GameMain{
         Laya.loader.load(["res/atlas/comp.atlas"], Laya.Handler.create(this, function(){
             Laya.stage.addChild(new view.SampleView);
         }));
-        LangManager.init(false);
+        LangManager.init(false, "res/langFile.csv");
     }
 }
 new GameMain();

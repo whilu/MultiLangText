@@ -28,8 +28,10 @@ module co.lujun.laya.component{
 		TC = 3,
 		JP = 4
 	}
-	/** When you add new language translation, remember to add one new enum code in LandCode，and add this new enum code in mLangCodeArr. In 'langFile.csv' file, add new translation with(Tab). **/
-	/** 添加新语言，上方枚举添加一个 code，下方的 mLangCodeArr 同样需要添加 code，'langFile.csv' 文件同样需要用制表符(Tab 键\t)顺序相同分别写入. **/
+	/** When you add new language translation, remember to add one new enum code in LandCode，
+	and add this new enum code in mLangCodeArr. In 'langFile.csv' file, add new translation with(Tab). **/
+	/** 添加新语言，上方枚举添加一个 code，下方的 mLangCodeArr 同样需要添加 code，
+	'langFile.csv' 文件同样需要用制表符(Tab 键\t)顺序相同分别写入. **/
 	export class LangManager{
 
 		private mLangCodeArr: Array<LandCode> = [LandCode.EN, LandCode.SC, LandCode.TC, LandCode.JP];
@@ -66,10 +68,12 @@ module co.lujun.laya.component{
 		/**
 		 * Init LangManager.
 		 * @param preloadLangFile Do you preloaded langFile.csv?
+		 * @param langFilePath language file path(.csv)?
 		 */
-		public static init(preloadLangFile: boolean = false){
+		public static init(preloadLangFile: boolean = false, langFilePath: string = "res/langFile.csv"){
 			let langManager: LangManager = LangManager.getInstance();
 			langManager.mParseAsync = !preloadLangFile;
+			langManager.mLangFilePath = langFilePath;
 
 			if(!langManager.mParseAsync){
 				langManager.parse();

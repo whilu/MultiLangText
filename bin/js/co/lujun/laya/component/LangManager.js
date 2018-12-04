@@ -34,7 +34,10 @@ var co;
                     LandCode[LandCode["TC"] = 3] = "TC";
                     LandCode[LandCode["JP"] = 4] = "JP";
                 })(LandCode = component.LandCode || (component.LandCode = {}));
-                /** 添加新语言，上方枚举添加一个 code，下方的 mLangCodeArr 同样需要添加 code，langFile.csv 文件同样需要用制表符(Tab 键\t)顺序相同分别写入 **/
+                /** When you add new language translation, remember to add one new enum code in LandCode，
+                and add this new enum code in mLangCodeArr. In 'langFile.csv' file, add new translation with(Tab). **/
+                /** 添加新语言，上方枚举添加一个 code，下方的 mLangCodeArr 同样需要添加 code，
+                'langFile.csv' 文件同样需要用制表符(Tab 键\t)顺序相同分别写入. **/
                 var LangManager = /** @class */ (function () {
                     function LangManager() {
                         this.mLangCodeArr = [LandCode.EN, LandCode.SC, LandCode.TC, LandCode.JP];
@@ -58,11 +61,14 @@ var co;
                     /**
                      * Init LangManager.
                      * @param preloadLangFile Do you preloaded langFile.csv?
+                     * @param langFilePath language file path(.csv)?
                      */
-                    LangManager.init = function (preloadLangFile) {
+                    LangManager.init = function (preloadLangFile, langFilePath) {
                         if (preloadLangFile === void 0) { preloadLangFile = false; }
+                        if (langFilePath === void 0) { langFilePath = "res/langFile.csv"; }
                         var langManager = LangManager.getInstance();
                         langManager.mParseAsync = !preloadLangFile;
+                        langManager.mLangFilePath = langFilePath;
                         if (!langManager.mParseAsync) {
                             langManager.parse();
                         }

@@ -25,14 +25,14 @@ var GameMain = /** @class */ (function () {
         Laya.init(750, 1334, WebGL);
         // PreLoad 'langfile.csv', if do this, make sure init LangManager when you complete loaded the 'langFile.csv'.
         // Laya.loader.load(["res/atlas/comp.atlas", "res/langFile.csv"], Laya.Handler.create(this, function(){
-        //     LangManager.init(true);
+        //     LangManager.init(true, "res/langFile.csv");
         //     Laya.stage.addChild(new view.SampleView);
         // }));
-        // Not preLoad 'langfile.csv', you can init LangManager in any place, but remember init with 'false'(not preloaded 'langFile.csv').
+        // No preLoad 'langfile.csv', you can init LangManager in any place, but remember init with 'false'(not preloaded 'langFile.csv').
         Laya.loader.load(["res/atlas/comp.atlas"], Laya.Handler.create(this, function () {
             Laya.stage.addChild(new view.SampleView);
         }));
-        LangManager.init(false);
+        LangManager.init(false, "res/langFile.csv");
     }
     return GameMain;
 }());
