@@ -53,12 +53,14 @@ var view;
             _this.jpBtn.on(Laya.Event.CLICK, _this, function () {
                 LangManager.getInstance().switchLang(LangCode.JP);
             });
+            // MultiLangText usage.
             var multiLangText = new MultiLangText();
             multiLangText.pos(0, 0);
             multiLangText.fontSize = 50;
             multiLangText.color = "#ffffff";
             multiLangText.multiLang("^BTN_SET", false);
             Laya.stage.addChild(multiLangText);
+            // MultiLangText as Laya.Text's child usage.
             var layaText = new Laya.Text();
             var layaTextMultiText = new MultiLangText();
             layaText.pos(300, 0);
@@ -67,6 +69,13 @@ var view;
             layaText.addChild(layaTextMultiText);
             layaTextMultiText.multiLang("^BTN_SOUND", true);
             Laya.stage.addChild(layaText);
+            // LangManager getValue(langKey: string) usage.
+            var layaText1 = new Laya.Text();
+            layaText1.pos(600, 0);
+            layaText1.fontSize = 50;
+            layaText1.color = "#ffffff";
+            layaText1.text = LangManager.getInstance().getValue("^BTN_MUSIC");
+            Laya.stage.addChild(layaText1);
             return _this;
         }
         return SampleView;

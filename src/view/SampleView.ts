@@ -43,6 +43,7 @@ module view{
 				LangManager.getInstance().switchLang(LangCode.JP);
 			});
 
+			// MultiLangText usage.
 			let multiLangText: MultiLangText = new MultiLangText();
 			multiLangText.pos(0, 0);
 			multiLangText.fontSize = 50;
@@ -50,6 +51,7 @@ module view{
 			multiLangText.multiLang("^BTN_SET", false);
 			Laya.stage.addChild(multiLangText);
 
+			// MultiLangText as Laya.Text's child usage.
 			let layaText: Laya.Text = new Laya.Text();
 			let layaTextMultiText: MultiLangText = new MultiLangText();
 			layaText.pos(300, 0);
@@ -58,6 +60,14 @@ module view{
 			layaText.addChild(layaTextMultiText);
 			layaTextMultiText.multiLang("^BTN_SOUND", true);
 			Laya.stage.addChild(layaText);
+
+			// LangManager getValue(langKey: string) usage.
+			let layaText1: Laya.Text = new Laya.Text();
+			layaText1.pos(600, 0);
+			layaText1.fontSize = 50;
+			layaText1.color = "#ffffff";
+			layaText1.text = LangManager.getInstance().getValue("^BTN_MUSIC");
+			Laya.stage.addChild(layaText1);
 		}
 	}
 }
