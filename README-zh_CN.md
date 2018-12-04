@@ -87,13 +87,13 @@ layaText1.text = LangManager.getInstance().getValue("^BTN_MUSIC");
 Laya.stage.addChild(layaText1);
 ```
 
-- ```switchLang(code: [co.lujun.laya.component.LandCode](#landCode))``` 方法, 使用此方法切换语言, 参数 ```[co.lujun.laya.component.LandCode](#landCode)```
+- ```switchLang(code: LandCode)``` 方法, 使用此方法切换语言, 参数 [LandCode](#langCode)
 
 ```typescript
-LangManager.getInstance().switchLang([LandCode](#landCode).SC);
+LangManager.getInstance().switchLang(LangCode.SC);
 ```
 
-## <span id="landCode">LandCode</span>
+## <span id="langCode">LangCode</span>
 
 翻译的枚举, 位于 ```co.lujun.laya.component```.
 
@@ -104,7 +104,7 @@ LangManager.getInstance().switchLang([LandCode](#landCode).SC);
 | TC | 3 | 3 | 繁體中文
 | JP | 4 | 4 | 日本語
 
-**注意: 添加新语言翻译时，先在 ```[co.lujun.laya.component.LandCode](#landCode)``` 中添加一个 code，然后将该 code 添加到 ```co.lujun.laya.component.LangManager.mLangCodeArr``` 数组中. ```langFile.csv``` 文件同样需要用制表符(Tab 键)顺序相同分别写入.**
+**注意: 添加新语言翻译时，先在 ```LandCode``` 中添加一个 code，然后将该 code 添加到 ```co.lujun.laya.component.LangManager.mLangCodeArr``` 数组中. ```langFile.csv``` 文件同样需要用制表符(Tab 键)顺序相同分别写入.**
 
 Enjoy it😄!
 
