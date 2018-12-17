@@ -1,4 +1,5 @@
 release/
 .laya/chrome/
 .laya/laya/
+node_modules/
 settings.json

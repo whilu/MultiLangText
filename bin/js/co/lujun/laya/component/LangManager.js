@@ -70,7 +70,7 @@ var co;
                         langManager.mParseAsync = !preloadLangFile;
                         langManager.mLangFilePath = langFilePath;
                         if (!langManager.mParseAsync) {
-                            langManager.parse();
+                            langManager.parseRes();
                         }
                         else {
                             langManager.loadAsync();
@@ -82,8 +82,11 @@ var co;
                         }
                         return LangManager.sInstance;
                     };
-                    LangManager.prototype.parse = function () {
+                    LangManager.prototype.parseRes = function () {
                         this.mLangFile = Laya.loader.getRes(this.mLangFilePath);
+                        this.parse();
+                    };
+                    LangManager.prototype.parse = function () {
                         if (this.mLangFile == undefined || this.mLangFile == null) {
                             throw "langFile.csv not loaded!";
                         }
@@ -102,7 +105,9 @@ var co;
                         }
                     };
                     LangManager.prototype.loadAsync = function () {
-                        Laya.loader.load(this.mLangFilePath, Laya.Handler.create(this, this.parse));
+                        Laya.loader.load(this.mLangFilePath, Laya.Handler.create(this, function () {
+                            this.parseRes();
+                        }));
                     };
                     LangManager.prototype.validate = function () {
                         for (var i = 0; i < this.mMultiLangTextArr.length; ++i) {
@@ -137,6 +142,14 @@ var co;
                     LangManager.prototype.switchLang = function (code) {
                         this.mCurLangCode = code;
                         this.validate();
+                    };
+                    /**
+                     * For __test__
+                     */
+                    LangManager.prototype.getSoundEnTranslation = function (fileBuffer, key) {
+                        this.mLangFile = fileBuffer;
+                        this.parse();
+                        return this.getValue(key);
                     };
                     return LangManager;
                 }());

@@ -76,7 +76,7 @@ module co.lujun.laya.component{
 			langManager.mLangFilePath = langFilePath;
 
 			if(!langManager.mParseAsync){
-				langManager.parse();
+				langManager.parseRes();
 			}else{
 				langManager.loadAsync();
 			}
@@ -89,9 +89,12 @@ module co.lujun.laya.component{
 			return LangManager.sInstance;
 		}
 
-		private parse(){
+		private parseRes(){
 			this.mLangFile = Laya.loader.getRes(this.mLangFilePath);
+			this.parse();
+		}
 
+		private parse(){
 			if(this.mLangFile == undefined || this.mLangFile == null){
 				throw "langFile.csv not loaded!";
 			}
@@ -113,7 +116,9 @@ module co.lujun.laya.component{
 		}
 
 		private loadAsync(){
-			Laya.loader.load(this.mLangFilePath, Laya.Handler.create(this, this.parse));
+			Laya.loader.load(this.mLangFilePath, Laya.Handler.create(this, function(){
+				this.parseRes();
+			}));
 		}
 
 		private validate(){
@@ -152,6 +157,15 @@ module co.lujun.laya.component{
 		public switchLang(code: LandCode){
 			this.mCurLangCode = code;
 			this.validate();
+		}
+
+		/**
+		 * For __test__
+		 */
+		public getSoundEnTranslation(fileBuffer: any, key: string): string{
+			this.mLangFile = fileBuffer;
+			this.parse();
+			return this.getValue(key);
 		}
 	}
 }
